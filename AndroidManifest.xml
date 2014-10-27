@@ -13,6 +13,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- 进行activity配置 -->
         <activity
             android:name="com.geekcoder.activity.MainActivity"
             android:label="@string/app_name" >
@@ -21,6 +22,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.geekcoder.activity.NewsDetailActivity"
+            android:label="@string/app_name" >
         </activity>
     </application>
 
