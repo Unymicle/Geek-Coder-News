@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.viewpager.R;
+import com.example.geekcoder.R;
 import com.geekcoder.adapter.MyFragmentPagerAdapter;
 import com.geekcoder.fragment.TestFragment;
 
@@ -103,11 +103,11 @@ public class MainActivity extends FragmentActivity {
 	public void InitViewPager(){
 		viewPager = (ViewPager)findViewById(R.id.viewpager);
 		fragmentList = new ArrayList<Fragment>();
-		Fragment firstFragment = TestFragment.newInstance("this is first fragment");
-		Fragment secondFragment = TestFragment.newInstance("this is second fragment");
-		Fragment thirdFragment = TestFragment.newInstance("this is third fragment");
-		Fragment fourthFragment = TestFragment.newInstance("this is fourth fragment");
-		Fragment fifthFragment = TestFragment.newInstance("this is fifth fragment");
+		Fragment firstFragment = new TestFragment();
+		Fragment secondFragment = new TestFragment();
+		Fragment thirdFragment = new TestFragment();
+		Fragment fourthFragment = new TestFragment();
+		Fragment fifthFragment = new TestFragment();
 		fragmentList.add(firstFragment);
 		fragmentList.add(secondFragment);
 		fragmentList.add(thirdFragment);
