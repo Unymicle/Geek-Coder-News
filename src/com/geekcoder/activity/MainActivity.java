@@ -3,6 +3,7 @@ package com.geekcoder.activity;
 import java.util.ArrayList;
 
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -89,7 +90,7 @@ public class MainActivity extends FragmentActivity {
 		DisplayMetrics dm = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		int screenW = dm.widthPixels;
-		offset = (screenW/4 - bmpW)/2;
+		offset = (screenW/5 - bmpW)/2;
 		
 		//imgageview设置平移，使下划线平移到初始位置（平移一个offset）
 		Matrix matrix = new Matrix();
@@ -117,6 +118,11 @@ public class MainActivity extends FragmentActivity {
 		//给ViewPager设置适配器
 		viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList));
 		viewPager.setCurrentItem(0);//设置当前显示标签页为第一页
+		headline.setTextColor(Color.parseColor("#f65050"));
+		hotpoint.setTextColor(Color.parseColor("#999999"));
+		entertainment.setTextColor(Color.parseColor("#999999"));
+		sport.setTextColor(Color.parseColor("#999999"));
+		technology.setTextColor(Color.parseColor("#999999"));
 		viewPager.setOnPageChangeListener(new MyOnPageChangeListener());//页面变化时的监听器
 	}
 
@@ -145,6 +151,43 @@ public class MainActivity extends FragmentActivity {
 			animation.setDuration(200);//动画持续时间0.2秒
 			image.startAnimation(animation);//是用ImageView来显示动画的
 			int i = currIndex + 1;
+			switch(currIndex){
+				case 0:
+					headline.setTextColor(Color.parseColor("#f65050"));
+					hotpoint.setTextColor(Color.parseColor("#999999"));
+					entertainment.setTextColor(Color.parseColor("#999999"));
+					sport.setTextColor(Color.parseColor("#999999"));
+					technology.setTextColor(Color.parseColor("#999999"));
+					break;
+				case 1:
+					headline.setTextColor(Color.parseColor("#999999"));
+					hotpoint.setTextColor(Color.parseColor("#f65050"));
+					entertainment.setTextColor(Color.parseColor("#999999"));
+					sport.setTextColor(Color.parseColor("#999999"));
+					technology.setTextColor(Color.parseColor("#999999"));
+					break;
+				case 2:
+					headline.setTextColor(Color.parseColor("#999999"));
+					hotpoint.setTextColor(Color.parseColor("#999999"));
+					entertainment.setTextColor(Color.parseColor("#f65050"));
+					sport.setTextColor(Color.parseColor("#999999"));
+					technology.setTextColor(Color.parseColor("#999999"));
+					break;
+				case 3:
+					headline.setTextColor(Color.parseColor("#999999"));
+					hotpoint.setTextColor(Color.parseColor("#999999"));
+					entertainment.setTextColor(Color.parseColor("#999999"));
+					sport.setTextColor(Color.parseColor("#f65050"));
+					technology.setTextColor(Color.parseColor("#999999"));
+					break;
+				case 4:
+					headline.setTextColor(Color.parseColor("#999999"));
+					hotpoint.setTextColor(Color.parseColor("#999999"));
+					entertainment.setTextColor(Color.parseColor("#999999"));
+					sport.setTextColor(Color.parseColor("#999999"));
+					technology.setTextColor(Color.parseColor("#f65050"));
+					break;
+			}
 			Toast.makeText(MainActivity.this, "您选择了第"+i+"个页卡", Toast.LENGTH_SHORT).show();
 		}
 	}

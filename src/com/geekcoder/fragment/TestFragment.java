@@ -30,9 +30,9 @@ public class TestFragment extends Fragment {
         List<Map<String,Object>> listitems=new ArrayList<Map<String,Object>>();
          for (int i = 0; i < 50; i++) {
             Map<String,Object> map = new HashMap<String,Object>();
-            map.put("image",R.drawable.ic_launcher);
-            map.put("title", "测试标题");
-            map.put("description", "测试的新闻描述");
+            map.put("image",R.drawable.test);
+            map.put("title", "中国未上空气最差20城排行榜");
+            map.put("description", "20个城市中印度占一半；兰州最高36位，北京排76位。");
             listitems.add(map);
         }
           
