@@ -14,23 +14,19 @@ import android.widget.TextView;
 import com.example.geekcoder.R;
 
 public class ListViewAdapter extends BaseAdapter {
-	
+
+	private ViewHolder holder;
+	private List<Map<String, Object>> list;
 	private Context context;
-	private List<Map<String, Object>> data;
-	//用于优化ListView的静态类，通过缓存的方式
-	static class ViewHolder{
-		ImageView image;
-		TextView title;
-		TextView description;
-	}
-	public ListViewAdapter(Context context, List<Map<String, Object>> data) {
+
+	public ListViewAdapter(Context context, List<Map<String, Object>> list) {
+		this.list = list;
 		this.context = context;
-		this.data = data;
 	}
-	
+
 	@Override
 	public int getCount() {
-		return data.size();
+		return list.size();
 	}
 
 	@Override
@@ -45,20 +41,27 @@ public class ListViewAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ViewHolder holder = null;
-		if(convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.item, null);
-			holder.image = (ImageView)convertView.findViewById(R.id.image);
-			holder.title = (TextView)convertView.findViewById(R.id.title);
-			holder.description = (TextView)convertView.findViewById(R.id.description);
+		if (convertView == null) {
+			holder = new ViewHolder();
+			convertView = LayoutInflater.from(context).inflate(
+					R.layout.listview_item, null);
+			holder.thumbImage = (ImageView) convertView.findViewById(R.id.thumb_image);
+			holder.newsTitle = (TextView) convertView.findViewById(R.id.news_title);
+			holder.newsSummary = (TextView) convertView.findViewById(R.id.news_summary);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		holder.image.setBackgroundResource((Integer)data.get(position).get("img"));
-		holder.title.setText((String)data.get(position).get("title"));
-		holder.description.setText((String)data.get(position).get("description"));
+		holder.thumbImage.setBackgroundResource((Integer)list.get(position).get("thumbImage"));
+		holder.newsTitle.setText((String)list.get(position).get("newsTitle"));
+		holder.newsSummary.setText((String)list.get(position).get("newsSummary"));
 		return convertView;
 	}
-	
+
+	private static class ViewHolder {
+		ImageView thumbImage;
+		TextView newsTitle;
+		TextView newsSummary;
+	}
+
 }
